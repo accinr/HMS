@@ -1,12 +1,38 @@
 {% extends 'base.html' %}
-{% block title %}Doctors{% endblock %}
+
 {% block content %}
-<h2>Doctors</h2>
-<ul>
+<h2 class="mb-3"><i class="fa-solid fa-user-doctor"></i> Doctors</h2>
+
+<a class="btn btn-success mb-3" href="{% url 'doctor_create' %}">
+    <i class="fa-solid fa-plus"></i> Add Doctor
+</a>
+
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Specialization</th>
+        <th>Available</th>
+        <th>Actions</th>
+    </tr>
+
     {% for d in doctors %}
-        <li><a href="{% url 'doctor_detail' d.id %}">{{ d }}</a></li>
-    {% empty %}
-        <li>No doctors found.</li>
+    <tr>
+        <td>{{ d.first_name }} {{ d.last_name }}</td>
+        <td>{{ d.specialization }}</td>
+        <td>{{ d.available|yesno:"✅,❌" }}</td>
+        <td>
+            <a class="btn btn-primary btn-sm" href="{% url 'doctor_detail' d.id %}">
+                <i class="fa-solid fa-eye"></i>
+            </a>
+            <a class="btn btn-warning btn-sm" href="{% url 'doctor_edit' d.id %}">
+                <i class="fa-solid fa-pen"></i>
+            </a>
+            <a class="btn btn-danger btn-sm" href="{% url 'doctor_delete' d.id %}">
+                <i class="fa-solid fa-trash"></i>
+            </a>
+        </td>
+    </tr>
     {% endfor %}
-</ul>
+</table>
+
 {% endblock %}

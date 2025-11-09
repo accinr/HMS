@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Medical Record Details{% endblock %}
+
+{% block content %}
+<h2>Record for {{ record.patient }}</h2>
+
+<p><strong>Date:</strong> {{ record.created_at }}</p>
+<p><strong>Diagnosis:</strong> {{ record.diagnosis }}</p>
+<p><strong>Prescription:</strong> {{ record.prescription }}</p>
+<p><strong>Notes:</strong> {{ record.notes }}</p>
+
+<p><a href="{% url 'patient_detail' record.patient.id %}">← Back to Patient</a></p>
+{% endblock %}

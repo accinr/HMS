@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import redirect
+from . import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +26,6 @@ urlpatterns = [
     path('patients/', include('patients.urls')),
     path('doctors/', include('staff.urls')),        # create staff.urls file with lists
     path('appointments/', include('appointments.urls')),
+    path('dashboard/', views.dashboard, name='dashboard'),
+
 ]

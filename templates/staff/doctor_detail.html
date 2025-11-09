@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
-{% block title %}{{ doctor }}{% endblock %}
+
 {% block content %}
-<h2>{{ doctor }}</h2>
-<p>Specialization: {{ doctor.specialization }}</p>
-<p>Phone: {{ doctor.phone }}</p>
-<p>Email: {{ doctor.email }}</p>
+<h2>Doctor Details</h2>
+
+<p><strong>Name:</strong> {{ doctor.first_name }} {{ doctor.last_name }}</p>
+<p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
+<p><strong>Phone:</strong> {{ doctor.phone }}</p>
+<p><strong>Email:</strong> {{ doctor.email }}</p>
+<p><strong>Available:</strong> {{ doctor.available|yesno:"Yes,No" }}</p>
+
+<a class="btn" href="{% url 'doctor_edit' doctor.id %}">Edit</a>
+<a class="btn" href="{% url 'doctor_delete' doctor.id %}" style="background:red;">Delete</a>
+
 {% endblock %}

@@ -1,13 +1,23 @@
 {% extends 'base.html' %}
-{% block title %}Patients{% endblock %}
+
 {% block content %}
 <h2>Patients</h2>
-<a href="{% url 'patient_create' %}">Add Patient</a>
-<ul>
-  {% for p in patients %}
-    <li><a href="{{ p.get_absolute_url }}">{{ p }}</a></li>
-  {% empty %}
-    <li>No patients yet.</li>
-  {% endfor %}
-</ul>
+
+<a class="btn" href="/patients/new/">+ Add Patient</a>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th></th>
+    </tr>
+
+    {% for p in patients %}
+    <tr>
+        <td>{{ p.first_name }} {{ p.last_name }}</td>
+        <td>{{ p.phone }}</td>
+        <td><a href="{{ p.get_absolute_url }}">View</a></td>
+    </tr>
+    {% endfor %}
+</table>
 {% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Medical Records{% endblock %}
+
+{% block content %}
+<h2>Medical Records for {{ patient }}</h2>
+
+<ul>
+    {% for record in records %}
+        <li>
+            <a href="{% url 'medicalrecord_detail' record.id %}">
+                {{ record.created_at }} - {{ record.diagnosis }}
+            </a>
+        </li>
+    {% empty %}
+        <li>No medical records yet.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'medicalrecord_add' patient.id %}">Add New Record</a>
+<br>
+<a href="{% url 'patient_detail' patient.id %}">← Back to Patient</a>
+{% endblock %}

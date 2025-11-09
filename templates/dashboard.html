@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2><i class="fa-solid fa-chart-line"></i> Dashboard</h2>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="card p-3 text-center">
+            <h3>{{ patients }}</h3>
+            <p>Patients</p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card p-3 text-center">
+            <h3>{{ doctors }}</h3>
+            <p>Doctors</p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card p-3 text-center">
+            <h3>{{ appointments }}</h3>
+            <p>Appointments</p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,21 +1,62 @@
-<!doctype html>
+{% load static %}
+
+<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>HMS - {% block title %}{% endblock %}</title>
-  <link rel="stylesheet">
+    <title>Hospital Management System</title>
+
+    <!-- ✅ Bootstrap CSS -->
+    <link rel="stylesheet"
+     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <!-- ✅ FontAwesome Icons -->
+    <link rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- ✅ Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
-  <header>
-    <h1>Hospital Management System (HMS)</h1>
-    <nav>
-      <a href="{% url 'patient_list' %}">Patients</a> |
-      <a href="{% url 'appointment_list' %}">Appointments</a> |
-      <a href="/admin/">Admin</a>
-    </nav>
-  </header>
-  <main>
-    {% block content %}{% endblock %}
-  </main>
+
+<div class="d-flex">
+
+    <!-- ✅ Sidebar -->
+    <div class="sidebar bg-dark text-white p-3" style="width: 240px; height: 100vh;">
+
+        <h3 class="text-center mb-4">
+            <i class="fa-solid fa-hospital"></i> HMS
+        </h3>
+
+        <a class="menu-item" href="/dashboard/">
+            <i class="fa-solid fa-chart-line"></i> Dashboard
+        </a>
+
+        <a class="menu-item" href="/patients/">
+            <i class="fa-solid fa-user-injured"></i> Patients
+        </a>
+
+        <a class="menu-item" href="/doctors/">
+            <i class="fa-solid fa-user-doctor"></i> Doctors
+        </a>
+
+        <a class="menu-item" href="/appointments/">
+            <i class="fa-solid fa-calendar-check"></i> Appointments
+        </a>
+
+    </div>
+
+    <!-- ✅ Main Content -->
+    <div class="content p-4" style="width: 100%;">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</div>
+
+<!-- ✅ Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 </html>

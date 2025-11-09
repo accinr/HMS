@@ -1,0 +1,53 @@
+/* Sidebar Styling */
+.sidebar {
+    background: #1b1f3b;
+}
+
+.menu-item {
+    display: block;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.menu-item:hover {
+    background: #2d325a;
+    text-decoration: none;
+    color: #79b4f2;
+}
+
+/* Page Content */
+.content {
+    background: #f4f7fb;
+    min-height: 100vh;
+}
+
+/* Buttons */
+.btn-custom {
+    background: #1b7ed6;
+    color: white;
+    border-radius: 5px;
+    padding: 8px 15px;
+    text-decoration: none;
+}
+
+.btn-custom:hover {
+    background: #0f5ea7;
+    color: white;
+}
+
+/* Tables */
+table {
+    background: white;
+}
+
+table th {
+    background: #1b7ed6;
+    color: white;
+}
+
+table td, table th {
+    padding: 12px;
+}
